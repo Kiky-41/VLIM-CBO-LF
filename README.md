@@ -136,6 +136,8 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | PSO | 40,262,058,762.16 | 443,289,771.31 | 39,695,802,167.05 | 41,160,731,985.55 | 0.000066 |
 | WOA | 42,761,376,083.84 | 971,992,386.25 | 41,092,311,786.81 | 44,660,103,807.98 | 0.000066 |
 
+VLIM-CBO-LF averages 39.10 billion IDR per day, 2.61% under ABC, 2.90% under PSO and 8.57% under WOA, and its worst run (39.21 billion) still beats the best run of every baseline. Mean solve time is 14 microseconds, 4.7 times faster than the baselines at 66 to 71 microseconds.
+
 ### Result workbooks
 
 | File | Content |
@@ -145,6 +147,8 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 | [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx) | raw output |
 | [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx) | raw output |
 | [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx) | raw output |
+
+The workbooks hold the raw solver output behind the tables above: per-unit schedules, per-hour costs, constraint checks and run statistics.
 
 
 ## Requirements
