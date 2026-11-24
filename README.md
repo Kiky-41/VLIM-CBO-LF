@@ -44,12 +44,12 @@ $$\sum_iP_{i,t}=P_{D,t},\qquad P_i^{\min}\le P_{i,t}\le P_i^{\max},\qquad -R_i^{
 
 For a trial multiplier the dispatch and correction are
 
-$$\mathbf{P}_t(\lambda)=\operatorname{clip}\!\left(\frac{\lambda\mathbf{1}-\mathbf{b}}{2\mathbf{c}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right),\qquad
+$$\mathbf{P}_t(\lambda)=\operatorname{clip}\left(\frac{\lambda\mathbf{1}-\mathbf{b}}{2\mathbf{c}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right),\qquad
 \lambda\leftarrow\lambda+\frac{P_{D,t}-\sum_iP_{i,t}}{\sum_i\frac{1}{2c_i}}.$$
 
 The correction is the exact linearisation of the balance equation, as in VLIM. The ramp projection is applied after the dispatch:
 
-$$\mathbf{P}_t\leftarrow\mathbf{P}_{t-1}+\operatorname{clip}\!\left(\mathbf{P}_t-\mathbf{P}_{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
+$$\mathbf{P}_t\leftarrow\mathbf{P}_{t-1}+\operatorname{clip}\left(\mathbf{P}_t-\mathbf{P}_{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
 
 ### Clone-based optimisation
 
@@ -63,11 +63,11 @@ The best clone (lowest 24-hour cost) is kept and the rest are discarded. Repeati
 
 Lévy flights add heavy-tailed steps, so the search occasionally makes a long jump instead of a small Gaussian move. The scale follows
 
-$$\sigma=\left(\frac{\Gamma(1+\beta)\sin\!\left(\frac{\pi\beta}{2}\right)}{\Gamma\!\left(\frac{1+\beta}{2}\right)\beta\,2^{\frac{\beta-1}{2}}}\right)^{\frac{1}{\beta}},\qquad \text{step}=\frac{u}{|v|^{1/\beta}},\qquad u\sim\mathcal{N}(0,\sigma^2),\ v\sim\mathcal{N}(0,1),$$
+$$\sigma=\left(\frac{\Gamma(1+\beta)\sin\left(\frac{\pi\beta}{2}\right)}{\Gamma\left(\frac{1+\beta}{2}\right)\beta~2^{\frac{\beta-1}{2}}}\right)^{\frac{1}{\beta}},\qquad \text{step}=\frac{u}{|v|^{1/\beta}},\qquad u\sim\mathcal{N}(0,\sigma^2),~v\sim\mathcal{N}(0,1),$$
 
 and the clone is
 
-$$a_i^{\text{clone}}=a_i+0.1\,\text{step},\qquad b_i^{\text{clone}}=b_i+0.1\,\text{step},\qquad c_i^{\text{clone}}=c_i+0.1\,\text{step},$$
+$$a_i^{\text{clone}}=a_i+0.1~\text{step},\qquad b_i^{\text{clone}}=b_i+0.1~\text{step},\qquad c_i^{\text{clone}}=c_i+0.1~\text{step},$$
 
 with stability parameter $\beta=1.5$. A clone is accepted only if it lowers the 24-hour cost.
 
