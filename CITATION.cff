@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this code or results, you must cite the paper below (CC BY 4.0 attribution requirement)."
+title: "VLIM-CBO-LF: Enhanced generator scheduling through the lambda iteration method with clone-based optimization and Lévy flight integration"
+type: software
+license: CC-BY-4.0
+repository-code: "https://github.com/Kiky-41/VLIM-CBO-LF"
+authors:
+  - family-names: "Ikhsan"
+    given-names: "Rifki Rahman Nur"
+  - family-names: "Raharjo"
+    given-names: "Jangkung"
+  - family-names: "Ramadhan"
+    given-names: "Ardiansyah"
+  - family-names: "Yustika"
+    given-names: "Lindiasari Martha"
+preferred-citation:
+  type: article
+  title: "Enhanced generator scheduling through the lambda iteration method with clone-based optimization and Lévy flight integration"
+  authors:
+    - family-names: "Ikhsan"
+      given-names: "Rifki Rahman Nur"
+    - family-names: "Raharjo"
+      given-names: "Jangkung"
+    - family-names: "Ramadhan"
+      given-names: "Ardiansyah"
+    - family-names: "Yustika"
+      given-names: "Lindiasari Martha"
+  journal: "Clean Energy Science and Technology"
+  year: 2026
+  doi: 10.18686/cest735
