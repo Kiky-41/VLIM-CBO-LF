@@ -25,20 +25,14 @@ $$\sum_iP_{i,t}=P_{D,t},\qquad P_i^{\min}\le P_{i,t}\le P_i^{\max},\qquad -R_i^{
 
 ### Notation
 
-| Symbol | Meaning | Unit |
-|---|---|---|
-| $N$ | number of units | – |
-| $T$ | number of hours | – |
-| $P_{i,t}$ | output of unit $i$ at hour $t$ | MW |
-| $a_i,b_i,c_i$ | cost coefficients | – |
-| $P_{D,t}$ | demand at hour $t$ | MW |
-| $\lambda$ | incremental cost | – |
-| $\varepsilon_{a,i},\varepsilon_{b,i},\varepsilon_{c,i}$ | Gaussian coefficient perturbations | – |
-| $\sigma^2$ | Gaussian variance | – |
-| $\beta$ | Lévy stability parameter | – |
-| $\sigma$ | Lévy scale factor | – |
-| $u,v$ | Lévy numerator and denominator draws | – |
-| $R_i^{U},R_i^{D}$ | ramp limits | MW/h |
+| Symbol | Meaning | Symbol | Meaning |
+|---|---|---|---|
+| $N$ | number of units | $\varepsilon_{a,i},\varepsilon_{b,i},\varepsilon_{c,i}$ | Gaussian coefficient perturbations |
+| $T$ | number of hours | $\sigma^2$ | Gaussian variance |
+| $P_{i,t}$ | output of unit $i$ at hour $t$ (MW) | $\beta$ | Lévy stability parameter |
+| $a_i,b_i,c_i$ | cost coefficients | $\sigma$ | Lévy scale factor |
+| $P_{D,t}$ | demand at hour $t$ (MW) | $u,v$ | Lévy numerator and denominator draws |
+| $\lambda$ | incremental cost | $R_i^{U},R_i^{D}$ | ramp limits (MW/h) |
 
 ### VLIM core
 
