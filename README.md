@@ -138,6 +138,38 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 VLIM-CBO-LF averages 39.10 billion IDR per day, 2.61% under ABC, 2.90% under PSO and 8.57% under WOA, and its worst run (39.21 billion) still beats the best run of every baseline. Mean solve time is 14 microseconds, 4.7 times faster than the baselines at 66 to 71 microseconds.
 
+### Omnibus tests, 42-unit, 24 hours, 30 runs
+
+| Test | p-value |
+|---|---|
+| ANOVA (between/within methods) | 1.82e-61 |
+| Friedman | 1.29e-20 |
+
+ANOVA returns p 1.82e-61 and the Friedman test p 1.29e-20, so the five methods do not share a common mean or median over the 30 runs.
+
+### Paired Wilcoxon against baselines
+
+| Baseline | Signed-rank statistic | p | Mean difference (IDR) | Median difference (IDR) |
+|---|---|---|---|---|
+| ABC | 0.0 | 1.73e-06 | -1,049,546,756.87 | -1,061,806,149.15 |
+| GWO | 0.0 | 1.73e-06 | -1,254,400,614.05 | -1,260,259,829.01 |
+| PSO | 0.0 | 1.73e-06 | -1,166,189,513.09 | -1,043,388,030.67 |
+| WOA | 0.0 | 1.73e-06 | -3,665,506,834.77 | -3,622,397,595.03 |
+
+Every paired comparison is significant at p 1.73e-6 with a negative mean difference, meaning VLIM-CBO-LF is cheaper than each baseline in the paired run. The gap is smallest against ABC (1.05 billion IDR per day) and largest against WOA (3.67 billion).
+
+### Mean rank across 30 runs
+
+| Method | Rank |
+|---|---|
+| VLIM-CBO-LF | 1 |
+| ABC | 2 |
+| PSO | 3 |
+| GWO | 4 |
+| WOA | 5 |
+
+The average ranks order the methods VLIM-CBO-LF, ABC, PSO, GWO and WOA, the same order as the mean daily cost.
+
 ### Result workbooks
 
 | File | Content |
