@@ -144,8 +144,54 @@ VLIM-CBO-LF averages 39.10 billion IDR per day, 2.61% under ABC, 2.90% under PSO
 |---|---|
 | ANOVA (between/within methods) | 1.82e-61 |
 | Friedman | 1.29e-20 |
+| Friedman, statistic | 0.00 |
 
-ANOVA returns p 1.82e-61 and the Friedman test p 1.29e-20, so the five methods do not share a common mean or median over the 30 runs.
+ANOVA returns p 1.82e-61 and the Friedman test chi-square 60 with p 1.29e-20, so the five methods do not share a common mean or median over the 30 runs.
+
+### Tukey HSD, all pairs
+
+| Comparison | Mean difference (IDR) | 95% CI | p |
+|---|---|---|---|
+| VLIM_CBO_LF vs ABC | -1,049,546,756.87 | -1,394,411,072.15 to -704,682,441.59 | 4.60e-16 |
+| VLIM_CBO_LF vs GWO | -1,254,400,614.05 | -1,599,264,929.33 to -909,536,298.77 | 0.0 |
+| VLIM_CBO_LF vs PSO | -1,166,189,513.09 | -1,511,053,828.37 to -821,325,197.81 | 4.04e-20 |
+| VLIM_CBO_LF vs WOA | -3,665,506,834.77 | -4,010,371,150.05 to -3,320,642,519.49 | 0.0 |
+| ABC vs GWO | -204,853,857.18 | -549,718,172.46 to 140,010,458.10 | 4.84e-01 |
+| ABC vs PSO | -116,642,756.22 | -461,507,071.50 to 228,221,559.06 | 8.88e-01 |
+| ABC vs WOA | -2,615,960,077.90 | -2,960,824,393.18 to -2,271,095,762.62 | 0.0 |
+| GWO vs PSO | 88,211,100.96 | -256,653,214.32 to 433,075,416.25 | 9.57e-01 |
+| GWO vs WOA | -2,411,106,220.72 | -2,755,970,536.00 to -2,066,241,905.44 | 0.0 |
+| PSO vs WOA | -2,499,317,321.68 | -2,844,181,636.96 to -2,154,453,006.40 | 0.0 |
+
+VLIM-CBO-LF is separated from all four baselines, with p from 4.6e-16 against ABC down to 0.0 against GWO and WOA. ABC, GWO and PSO are tied among themselves (p 0.48 to 0.96), so the hybrid is the only method outside that block, and WOA sits below all of them.
+
+### Friedman post-hoc, mean rank differences
+
+| Comparison | Rank difference | 95% CI | p |
+|---|---|---|---|
+| VLIM_CBO_LF vs ABC | -1.733 | -2.85 to -0.62 | 2.11e-04 |
+| VLIM_CBO_LF vs GWO | -2.433 | -3.55 to -1.32 | 2.47e-08 |
+| VLIM_CBO_LF vs PSO | -1.833 | -2.95 to -0.72 | 6.95e-05 |
+| VLIM_CBO_LF vs WOA | -4.000 | -5.11 to -2.89 | 5.18e-23 |
+| ABC vs GWO | -0.700 | -1.81 to 0.41 | 4.25e-01 |
+| ABC vs PSO | -0.100 | -1.21 to 1.01 | 9.99e-01 |
+| ABC vs WOA | -2.267 | -3.38 to -1.15 | 2.80e-07 |
+| GWO vs PSO | 0.600 | -0.51 to 1.71 | 5.82e-01 |
+| GWO vs WOA | -1.567 | -2.68 to -0.45 | 1.17e-03 |
+| PSO vs WOA | -2.167 | -3.28 to -1.05 | 1.11e-06 |
+
+On ranks the hybrid is 1.73 places ahead of ABC (p 2.1e-4), 2.43 ahead of GWO (p 2.5e-8), 1.83 ahead of PSO (p 7.0e-5) and 4.00 ahead of WOA (p 5.2e-23). The three middle baselines are again indistinguishable (p 0.42 to 1.00).
+
+### Paired t-test against baselines
+
+| Comparison | t statistic | p | Mean difference (IDR) | 95% CI |
+|---|---|---|---|---|
+| VLIM_CBO_LF vs ABC | -38.39 | 2.05e-26 | -1,049,546,756.87 | -1,105,464,624.25 to -993,628,889.49 |
+| VLIM_CBO_LF vs GWO | -35.37 | 2.10e-25 | -1,254,400,614.05 | -1,326,937,897.26 to -1,181,863,330.84 |
+| VLIM_CBO_LF vs PSO | -14.80 | 4.77e-15 | -1,166,189,513.09 | -1,327,371,465.06 to -1,005,007,561.11 |
+| VLIM_CBO_LF vs WOA | -20.82 | 5.49e-19 | -3,665,506,834.77 | -4,025,540,588.50 to -3,305,473,081.03 |
+
+All four paired t-tests reject equality with t statistics from minus 14.8 to minus 38.4 and confidence intervals that stay below zero, so the hybrid is cheaper than every baseline run by run, not only on average.
 
 ### Paired Wilcoxon against baselines
 
@@ -169,6 +215,69 @@ Every paired comparison is significant at p 1.73e-6 with a negative mean differe
 | WOA | 5 |
 
 The average ranks order the methods VLIM-CBO-LF, ABC, PSO, GWO and WOA, the same order as the mean daily cost.
+
+### Sensitivity, beta, 30 runs per setting
+
+| beta | Mean cost (IDR) | Std | Best | Worst |
+|---|---|---|---|---|
+| 1.1 | 39,962,951,504.10 | 183,964,109.39 | 39,555,104,854.91 | 40,160,715,272.21 |
+| 1.3 | 39,461,731,164.16 | 133,652,059.26 | 39,174,603,161.96 | 39,589,886,006.21 |
+| 1.5 | 39,096,765,403.77 | 86,107,705.70 | 38,914,737,218.56 | 39,172,418,490.29 |
+| 1.7 | 38,795,501,587.25 | 55,162,073.65 | 38,684,770,316.59 | 38,851,266,532.37 |
+| 1.9 | 38,471,487,732.03 | 25,932,176.72 | 38,420,201,803.33 | 38,501,668,239.78 |
+
+Mean cost falls monotonically as beta rises, from 39.96 billion at 1.1 to 38.47 billion at 1.9, and the spread shrinks with it (std 184.0 million down to 25.9 million). The default 1.5 sits mid-range at 39.10 billion.
+
+### Sensitivity, levyScaleRatio, 30 runs per setting
+
+| levyScaleRatio | Mean cost (IDR) | Std | Best | Worst |
+|---|---|---|---|---|
+| 0.02 | 38,330,951,661.62 | 21,500,824.04 | 38,286,200,527.11 | 38,351,705,914.37 |
+| 0.05 | 38,714,464,047.03 | 56,504,229.34 | 38,597,909,826.99 | 38,770,418,617.82 |
+| 0.08 | 39,096,765,403.77 | 86,107,705.70 | 38,914,737,218.56 | 39,172,418,490.29 |
+| 0.1 | 39,349,809,743.43 | 104,325,270.31 | 39,128,362,002.10 | 39,451,485,986.66 |
+| 0.15 | 39,981,013,234.86 | 146,503,060.76 | 39,672,215,970.04 | 40,132,402,303.43 |
+
+Levy step size matters more than beta below 0.10: 0.02 gives the cheapest run at 38.33 billion, 0.08 is the default at 39.10 billion, and 0.15 costs 39.98 billion. Small steps pay here because the local search carries the refinement.
+
+### Sensitivity, numCandidates, 30 runs per setting
+
+| numCandidates | Mean cost (IDR) | Std | Best | Worst |
+|---|---|---|---|---|
+| 20.0 | 39,129,966,176.55 | 91,940,663.97 | 38,914,737,218.56 | 39,259,297,375.23 |
+| 30.0 | 39,108,659,219.12 | 77,595,463.02 | 38,914,737,218.56 | 39,172,418,490.29 |
+| 50.0 | 39,096,765,403.77 | 86,107,705.70 | 38,914,737,218.56 | 39,172,418,490.29 |
+| 70.0 | 39,063,853,168.30 | 78,507,261.28 | 38,914,737,218.56 | 39,172,418,490.29 |
+| 100.0 | 39,051,486,966.75 | 67,940,339.06 | 38,914,737,218.56 | 39,121,888,086.63 |
+
+Candidate count barely moves the mean, 39.13 billion at 20 up to 39.05 billion at 100, while the worst run tightens from 39.26 to 39.12 billion. Above 50 candidates the gain is under 0.1%, which sets the practical ceiling.
+
+### Variants, 30 runs
+
+| Variant | Mean cost (IDR) | Std | Best | Worst |
+|---|---|---|---|---|
+| VLIM | 36,250,005,749.63 | 8.80 | 36,250,005,735.13 | 36,250,005,764.13 |
+| VLIM-CBO | 36,250,003,698.64 | 628.56 | 36,250,002,164.29 | 36,250,004,593.21 |
+| VLIM-CBO-LF | 36,249,990,313.58 | 18,232.14 | 36,249,911,691.94 | 36,250,002,274.72 |
+
+The three variants land within 15,436 IDR of each other, or 0.00004% of the daily cost, with VLIM-CBO-LF lowest at 36,249,990,314 IDR. Its spread is larger than the other two (std 18,232 against 629 and 8.8), so the gain is in the best run rather than in stability.
+
+### Variant tests, omnibus ANOVA p 1.42e-07, Friedman p 9.36e-14
+
+| Comparison | Test | Difference | p |
+|---|---|---|---|
+| VLIM vs VLIM-CBO | Tukey HSD | 2,050.99 | 7.32e-01 |
+| VLIM vs VLIM-CBO-LF | Tukey HSD | 15,436.05 | 5.32e-07 |
+| VLIM-CBO vs VLIM-CBO-LF | Tukey HSD | 13,385.06 | 1.20e-05 |
+| VLIM vs VLIM-CBO | Friedman post-hoc | 1.000 | 3.17e-04 |
+| VLIM vs VLIM-CBO-LF | Friedman post-hoc | 2.000 | 2.26e-14 |
+| VLIM-CBO vs VLIM-CBO-LF | Friedman post-hoc | 1.000 | 3.17e-04 |
+| VLIM-CBO-LF vs VLIM | Paired t-test | -15,436.05 | 6.95e-05 |
+| VLIM-CBO-LF vs VLIM-CBO | Paired t-test | -13,385.06 | 4.01e-04 |
+| VLIM vs VLIM-CBO-LF | Wilcoxon | -15,436.05 | 1.73e-06 |
+| VLIM-CBO vs VLIM-CBO-LF | Wilcoxon | -13,385.06 | 1.73e-06 |
+
+ANOVA (F 19.00, p 1.42e-7) and Friedman (chi-square 60, p 9.36e-14) both reject equality across the three variants. Tukey separates VLIM-CBO-LF from VLIM (p 5.3e-7) and from VLIM-CBO (p 1.2e-5) but not VLIM from VLIM-CBO (p 0.73); paired t-tests and Wilcoxon agree for both pairs. Rank order is VLIM-CBO-LF, VLIM-CBO, VLIM.
 
 ### Result workbooks
 
