@@ -192,13 +192,9 @@ Every paired comparison is significant at p 1.73e-6 with a negative mean differe
 
 ### Mean rank across 30 runs
 
-| Method | Rank |
-|---|---|
-| VLIM-CBO-LF | 1 |
-| ABC | 2 |
-| PSO | 3 |
-| GWO | 4 |
-| WOA | 5 |
+| Method | VLIM-CBO-LF | ABC | PSO | GWO | WOA |
+|---|---|---|---|---|---|
+| Rank | 1 | 2 | 3 | 4 | 5 |
 
 The average ranks order the methods VLIM-CBO-LF, ABC, PSO, GWO and WOA, the same order as the mean daily cost.
 
@@ -260,13 +256,7 @@ ANOVA (F 19.00, p 1.42e-7) and Friedman (chi-square 60, p 9.36e-14) both reject 
 
 ### Result workbooks
 
-| File | Content |
-|---|---|
-| [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx) | raw output |
-| [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx) | raw output |
-| [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx) | raw output |
-| [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx) | raw output |
-| [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx) | raw output |
+Raw solver output: [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx), [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx), [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx), [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx), [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx).
 
 The workbooks hold the raw solver output behind the tables above: per-unit schedules, per-hour costs, constraint checks and run statistics.
 
