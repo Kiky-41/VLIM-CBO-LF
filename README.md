@@ -12,6 +12,44 @@ Vectorized Lambda Iteration Method with Clone-Based Optimization and Lévy fligh
 
 One of the hardest parts of running a power system is economic dispatch (ED), which means finding the cheapest way to meet demand and operational limits. To alleviate these limitations, this study presents a hybrid methodology known as Vectorized Lambda Iteration Method–Clone-Based Optimization with Lévy flight (VLIM-CBO-LF). The contribution comprises the synchronized amalgamation of three complementary strategies. The VLIM-CBO-LF improves the accuracy of dispatch calculations, clone-based optimization improves local search by using adaptive cloning, selection, and Lévy flight improves global exploration by letting movements happen over long distances from time to time. The suggested method was tested on a 42-unit economic dispatch system over a 24-h period, running it 30 times to make sure it worked each time. The results show that VLIM-CBO-LF has the lowest average daily fuel cost of IDR 3.9096 × 1010. This is better than the artificial bee colony, particle swarm optimization, grey wolf optimization, and whale optimization algorithm. The cost goes down from IDR 1.050 × 10⁹ to 3.666 × 10⁹ per day, but the performance stays the same, with a standard deviation of 6.50 × 10⁷ IDR. The ANOVA test (F = 19.004, p = 1.820 × 10⁻⁷) and the Friedman test (χ2 = 60, p = 9.358 × 10⁻14) both show that the results are statistically significant. The Wilcoxon signed-rank test (W⁺ = 0) shows that the results are strictly better than all other benchmark methods. Future research may investigate the applicability of the VLIM-CBO-LF model to more complex electrical market mechanisms.
 
+
+## Proposed method
+
+VLIM-CBO-LF keeps the vectorised lambda iteration as its dispatch engine and adds a metaheuristic layer over the cost coefficients. Clones of $(a_i,b_i,c_i)$ are generated with Gaussian noise (CBO) or with Lévy-flight steps (LF); each clone is dispatched by VLIM, and the clone set with the lowest total cost replaces the incumbent. This lets the search escape coefficient settings that trap the pure lambda iteration in a local optimum without changing the fast inner solver.
+
+### Objective and constraints
+
+$$\min F=\sum_{t=1}^{T}\sum_{i=1}^{N}\left(a_i+b_iP_{i,t}+c_iP_{i,t}^2\right)$$
+
+$$\sum_iP_{i,t}=P_{D,t},\qquad P_i^{\min}\le P_{i,t}\le P_i^{\max},\qquad -R_i^{D}\le P_{i,t}-P_{i,t-1}\le R_i^{U}$$
+
+### VLIM core
+
+$$\mathbf{P}_t(\lambda)=\operatorname{clip}\!\left(\frac{\lambda\mathbf{1}-\mathbf{b}}{2\mathbf{c}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right),\qquad
+\lambda\leftarrow\lambda+\frac{P_{D,t}-\sum_iP_{i,t}}{\sum_i\frac{1}{2c_i}}$$
+
+applied hour by hour with the ramp projection
+
+$$\mathbf{P}_t\leftarrow\mathbf{P}_{t-1}+\operatorname{clip}\!\left(\mathbf{P}_t-\mathbf{P}_{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right)$$
+
+### Clone-based optimisation
+
+$$a_i^{\text{clone}}=a_i+\varepsilon_{a,i},\qquad b_i^{\text{clone}}=b_i+\varepsilon_{b,i},\qquad c_i^{\text{clone}}=c_i+\varepsilon_{c,i},\qquad \varepsilon_{\cdot,i}\sim\mathcal{N}(0,\sigma^2),\quad \sigma^2=0.01$$
+
+The best clone (lowest $\sum_tF_t$) is kept and the rest are discarded; the process repeats, so the coefficient vector drifts toward lower-cost dispatches.
+
+### Lévy-flight clone
+
+$$\sigma=\left(\frac{\Gamma(1+\beta)\sin\!\left(\frac{\pi\beta}{2}\right)}{\Gamma\!\left(\frac{1+\beta}{2}\right)\beta\,2^{\frac{\beta-1}{2}}}\right)^{\frac{1}{\beta}},\qquad \text{step}=\frac{u}{|v|^{1/\beta}},\qquad u\sim\mathcal{N}(0,\sigma^2),\ v\sim\mathcal{N}(0,1)$$
+
+$$a_i^{\text{clone}}=a_i+0.1\,\text{step},\qquad b_i^{\text{clone}}=b_i+0.1\,\text{step},\qquad c_i^{\text{clone}}=c_i+0.1\,\text{step}$$
+
+with stability parameter $\beta=1.5$. A clone is accepted only if it lowers the 24-hour cost.
+
+### Reported result
+
+42-unit, 24-hour Jamali dispatch, 30 independent runs: IDR $3.9096\times10^{10}$, the lowest cost among ABC, GWO, PSO, WOA and the two ablation variants VLIM and VLIM-CBO.
+
 ## Contents
 
 ```
