@@ -122,13 +122,13 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ### 42-unit, 24 hours, 30 runs
 
-| Method | Mean cost (IDR) | Std | Best | Worst | Mean time (s) |
+| Method | VLIM-CBO-LF | ABC | GWO | PSO | WOA |
 |---|---|---|---|---|---|
-| VLIM-CBO-LF | 39,095,869,249.07 | 64,964,165.83 | 38,914,737,218.56 | 39,214,724,516.36 | 0.000014 |
-| ABC | 40,145,416,005.95 | 137,671,090.99 | 39,808,214,131.80 | 40,444,974,975.42 | 0.000071 |
-| GWO | 40,350,269,863.13 | 185,297,532.94 | 39,810,900,845.61 | 40,693,934,961.34 | 0.000068 |
-| PSO | 40,262,058,762.16 | 443,289,771.31 | 39,695,802,167.05 | 41,160,731,985.55 | 0.000066 |
-| WOA | 42,761,376,083.84 | 971,992,386.25 | 41,092,311,786.81 | 44,660,103,807.98 | 0.000066 |
+| Mean cost (IDR) | 39,095,869,249.07 | 40,145,416,005.95 | 40,350,269,863.13 | 40,262,058,762.16 | 42,761,376,083.84 |
+| Std | 64,964,165.83 | 137,671,090.99 | 185,297,532.94 | 443,289,771.31 | 971,992,386.25 |
+| Best | 38,914,737,218.56 | 39,808,214,131.80 | 39,810,900,845.61 | 39,695,802,167.05 | 41,092,311,786.81 |
+| Worst | 39,214,724,516.36 | 40,444,974,975.42 | 40,693,934,961.34 | 41,160,731,985.55 | 44,660,103,807.98 |
+| Mean time (s) | 0.000014 | 0.000071 | 0.000068 | 0.000066 | 0.000066 |
 
 VLIM-CBO-LF averages 39.10 billion IDR per day, 2.61% under ABC, 2.90% under PSO and 8.57% under WOA, and its worst run (39.21 billion) still beats the best run of every baseline. Mean solve time is 14 microseconds, 4.7 times faster than the baselines at 66 to 71 microseconds.
 
@@ -164,23 +164,23 @@ On ranks the hybrid is 1.73 places ahead of ABC (p 2.1e-4), 2.43 ahead of GWO (p
 
 ### Paired t-test against baselines
 
-| Comparison | t statistic | p | Mean difference (IDR) | 95% CI |
+| Comparison | VLIM_CBO_LF vs ABC | VLIM_CBO_LF vs GWO | VLIM_CBO_LF vs PSO | VLIM_CBO_LF vs WOA |
 |---|---|---|---|---|
-| VLIM_CBO_LF vs ABC | -38.39 | 2.05e-26 | -1,049,546,756.87 | -1,105,464,624.25 to -993,628,889.49 |
-| VLIM_CBO_LF vs GWO | -35.37 | 2.10e-25 | -1,254,400,614.05 | -1,326,937,897.26 to -1,181,863,330.84 |
-| VLIM_CBO_LF vs PSO | -14.80 | 4.77e-15 | -1,166,189,513.09 | -1,327,371,465.06 to -1,005,007,561.11 |
-| VLIM_CBO_LF vs WOA | -20.82 | 5.49e-19 | -3,665,506,834.77 | -4,025,540,588.50 to -3,305,473,081.03 |
+| t statistic | -38.39 | -35.37 | -14.80 | -20.82 |
+| p | 2.05e-26 | 2.10e-25 | 4.77e-15 | 5.49e-19 |
+| Mean difference (IDR) | -1,049,546,756.87 | -1,254,400,614.05 | -1,166,189,513.09 | -3,665,506,834.77 |
+| 95% CI | -1,105,464,624.25 to -993,628,889.49 | -1,326,937,897.26 to -1,181,863,330.84 | -1,327,371,465.06 to -1,005,007,561.11 | -4,025,540,588.50 to -3,305,473,081.03 |
 
 All four paired t-tests reject equality with t statistics from minus 14.8 to minus 38.4 and confidence intervals that stay below zero, so the hybrid is cheaper than every baseline run by run, not only on average.
 
 ### Paired Wilcoxon against baselines
 
-| Baseline | Signed-rank statistic | p | Mean difference (IDR) | Median difference (IDR) |
+| Baseline | ABC | GWO | PSO | WOA |
 |---|---|---|---|---|
-| ABC | 0.0 | 1.73e-06 | -1,049,546,756.87 | -1,061,806,149.15 |
-| GWO | 0.0 | 1.73e-06 | -1,254,400,614.05 | -1,260,259,829.01 |
-| PSO | 0.0 | 1.73e-06 | -1,166,189,513.09 | -1,043,388,030.67 |
-| WOA | 0.0 | 1.73e-06 | -3,665,506,834.77 | -3,622,397,595.03 |
+| Signed-rank statistic | 0.0 | 0.0 | 0.0 | 0.0 |
+| p | 1.73e-06 | 1.73e-06 | 1.73e-06 | 1.73e-06 |
+| Mean difference (IDR) | -1,049,546,756.87 | -1,254,400,614.05 | -1,166,189,513.09 | -3,665,506,834.77 |
+| Median difference (IDR) | -1,061,806,149.15 | -1,260,259,829.01 | -1,043,388,030.67 | -3,622,397,595.03 |
 
 Every paired comparison is significant at p 1.73e-6 with a negative mean difference, meaning VLIM-CBO-LF is cheaper than each baseline in the paired run. The gap is smallest against ABC (1.05 billion IDR per day) and largest against WOA (3.67 billion).
 
