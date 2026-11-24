@@ -126,18 +126,25 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ## Results
 
-| Metric | Value |
+### 42-unit, 24 hours, 30 runs
+
+| Method | Mean cost (IDR) | Std | Best | Worst | Mean time (s) |
+|---|---|---|---|---|---|
+| VLIM-CBO-LF | 39,095,869,249.07 | 64,964,165.83 | 38,914,737,218.56 | 39,214,724,516.36 | 0.000014 |
+| ABC | 40,145,416,005.95 | 137,671,090.99 | 39,808,214,131.80 | 40,444,974,975.42 | 0.000071 |
+| GWO | 40,350,269,863.13 | 185,297,532.94 | 39,810,900,845.61 | 40,693,934,961.34 | 0.000068 |
+| PSO | 40,262,058,762.16 | 443,289,771.31 | 39,695,802,167.05 | 41,160,731,985.55 | 0.000066 |
+| WOA | 42,761,376,083.84 | 971,992,386.25 | 41,092,311,786.81 | 44,660,103,807.98 | 0.000066 |
+
+### Result workbooks
+
+| File | Content |
 |---|---|
-| Test case | 42-unit Jamali, 24 hours |
-| Best cost | IDR $3.9096\times10^{10}$ |
-| Independent runs | 30 |
-| Baselines | ABC, GWO, PSO, WOA, VLIM, VLIM-CBO |
-| Levy exponent | $\beta=1.5$ |
-| Result file | [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx) |
-| Result file | [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx) |
-| Result file | [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx) |
-| Result file | [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx) |
-| Result file | [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx) |
+| [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx) | raw output |
+| [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx) | raw output |
+| [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx) | raw output |
+| [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx) | raw output |
+| [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx) | raw output |
 
 
 ## Requirements
