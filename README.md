@@ -126,33 +126,18 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 
 ## Results
 
-### Figures
-
-![BoxWhisker_VLIM_Variants](figures/BoxWhisker_VLIM_Variants.png)
-
-![Convergence_Comparison_Fixed](figures/Convergence_Comparison_Fixed.png)
-
-![DailyCost_BoxWhisker_Fixed](figures/DailyCost_BoxWhisker_Fixed.png)
-
-![MeanCI_VLIM_Variants](figures/MeanCI_VLIM_Variants.png)
-
-![MeanDailyCost_ErrorBar_Fixed](figures/MeanDailyCost_ErrorBar_Fixed.png)
-
-![Scatter_VLIM_Variants](figures/Scatter_VLIM_Variants.png)
-
-![Sensitivity_Beta](figures/Sensitivity_Beta.png)
-
-![Sensitivity_Candidates](figures/Sensitivity_Candidates.png)
-
-![Sensitivity_Scale](figures/Sensitivity_Scale.png)
-
-### Result files
-
-- [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx)
-- [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx)
-- [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx)
-- [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx)
-- [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx)
+| Metric | Value |
+|---|---|
+| Test case | 42-unit Jamali, 24 hours |
+| Best cost | IDR $3.9096\times10^{10}$ |
+| Independent runs | 30 |
+| Baselines | ABC, GWO, PSO, WOA, VLIM, VLIM-CBO |
+| Levy exponent | $\beta=1.5$ |
+| Result file | [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx) |
+| Result file | [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx) |
+| Result file | [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx) |
+| Result file | [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx) |
+| Result file | [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx) |
 
 
 ## Requirements
