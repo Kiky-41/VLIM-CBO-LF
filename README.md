@@ -44,12 +44,12 @@ $$\sum_iP_{i,t}=P_{D,t},\qquad P_i^{\min}\le P_{i,t}\le P_i^{\max},\qquad -R_i^{
 
 For a trial multiplier the dispatch and correction are
 
-$$\mathbf{P}_t(\lambda)=\operatorname{clip}\left(\frac{\lambda\mathbf{1}-\mathbf{b}}{2\mathbf{c}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right),\qquad
+$$\mathbf{P}_t(\lambda)=\mathrm{clip}\left(\frac{\lambda\mathbf{1}-\mathbf{b}}{2\mathbf{c}},\mathbf{P}^{\min},\mathbf{P}^{\max}\right),\qquad
 \lambda\leftarrow\lambda+\frac{P_{D,t}-\sum_iP_{i,t}}{\sum_i\frac{1}{2c_i}}.$$
 
 The correction is the exact linearisation of the balance equation, as in VLIM. The ramp projection is applied after the dispatch:
 
-$$\mathbf{P}_t\leftarrow\mathbf{P}_{t-1}+\operatorname{clip}\left(\mathbf{P}_t-\mathbf{P}_{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
+$$\mathbf{P}_t\leftarrow\mathbf{P}_{t-1}+\mathrm{clip}\left(\mathbf{P}_t-\mathbf{P}_{t-1},-\mathbf{R}^{D},\mathbf{R}^{U}\right).$$
 
 ### Clone-based optimisation
 
@@ -122,6 +122,38 @@ Input data is **not included**. Place files in `data/` (notebooks) or next to th
 |---|---|
 | `input42u.xlsx` | Sheet1: `Unit`, `a`, `b`, `c`, `pmin`, `pmax`, `rampup`, `rampdown`, `load` |
 | `power_demand42u.xlsx` | Sheet1: `load` |
+
+
+## Results
+
+### Figures
+
+![BoxWhisker_VLIM_Variants](figures/BoxWhisker_VLIM_Variants.png)
+
+![Convergence_Comparison_Fixed](figures/Convergence_Comparison_Fixed.png)
+
+![DailyCost_BoxWhisker_Fixed](figures/DailyCost_BoxWhisker_Fixed.png)
+
+![MeanCI_VLIM_Variants](figures/MeanCI_VLIM_Variants.png)
+
+![MeanDailyCost_ErrorBar_Fixed](figures/MeanDailyCost_ErrorBar_Fixed.png)
+
+![Scatter_VLIM_Variants](figures/Scatter_VLIM_Variants.png)
+
+![Sensitivity_Beta](figures/Sensitivity_Beta.png)
+
+![Sensitivity_Candidates](figures/Sensitivity_Candidates.png)
+
+![Sensitivity_Scale](figures/Sensitivity_Scale.png)
+
+### Result files
+
+- [`results/1 Kompilasi Data.xlsx`](results/1 Kompilasi Data.xlsx)
+- [`results/2 Kompilasi Data.xlsx`](results/2 Kompilasi Data.xlsx)
+- [`results/Comparative_ED_Statistical_Results_Fixed.xlsx`](results/Comparative_ED_Statistical_Results_Fixed.xlsx)
+- [`results/variants/Statistical_Analysis_VLIM_Variants.xlsx`](results/variants/Statistical_Analysis_VLIM_Variants.xlsx)
+- [`results/variants/SummaryVLIMVariant.xlsx`](results/variants/SummaryVLIMVariant.xlsx)
+
 
 ## Requirements
 
