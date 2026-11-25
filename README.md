@@ -144,32 +144,46 @@ ANOVA returns p 1.82e-61 and the Friedman test chi-square 60 with p 1.29e-20, so
 
 ### Tukey HSD, all pairs
 
-| Comparison | VLIM_CBO_LF vs ABC | VLIM_CBO_LF vs GWO | VLIM_CBO_LF vs PSO | VLIM_CBO_LF vs WOA | ABC vs GWO | ABC vs PSO | ABC vs WOA | GWO vs PSO | GWO vs WOA | PSO vs WOA |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Mean difference (IDR) | -1,049,546,756.87 | -1,254,400,614.05 | -1,166,189,513.09 | -3,665,506,834.77 | -204,853,857.18 | -116,642,756.22 | -2,615,960,077.90 | 88,211,100.96 | -2,411,106,220.72 | -2,499,317,321.68 |
-| 95% CI | -1,394,411,072.15 to -704,682,441.59 | -1,599,264,929.33 to -909,536,298.77 | -1,511,053,828.37 to -821,325,197.81 | -4,010,371,150.05 to -3,320,642,519.49 | -549,718,172.46 to 140,010,458.10 | -461,507,071.50 to 228,221,559.06 | -2,960,824,393.18 to -2,271,095,762.62 | -256,653,214.32 to 433,075,416.25 | -2,755,970,536.00 to -2,066,241,905.44 | -2,844,181,636.96 to -2,154,453,006.40 |
-| p | 4.60e-16 | 0.0 | 4.04e-20 | 0.0 | 4.84e-01 | 8.88e-01 | 0.0 | 9.57e-01 | 0.0 | 0.0 |
+| Comparison | Mean difference (IDR) | 95% CI | p |
+|---|---|---|---|
+| VLIM_CBO_LF vs ABC | -1,049,546,756.87 | -1,394,411,072.15 to -704,682,441.59 | 4.60e-16 |
+| VLIM_CBO_LF vs GWO | -1,254,400,614.05 | -1,599,264,929.33 to -909,536,298.77 | 0.0 |
+| VLIM_CBO_LF vs PSO | -1,166,189,513.09 | -1,511,053,828.37 to -821,325,197.81 | 4.04e-20 |
+| VLIM_CBO_LF vs WOA | -3,665,506,834.77 | -4,010,371,150.05 to -3,320,642,519.49 | 0.0 |
+| ABC vs GWO | -204,853,857.18 | -549,718,172.46 to 140,010,458.10 | 4.84e-01 |
+| ABC vs PSO | -116,642,756.22 | -461,507,071.50 to 228,221,559.06 | 8.88e-01 |
+| ABC vs WOA | -2,615,960,077.90 | -2,960,824,393.18 to -2,271,095,762.62 | 0.0 |
+| GWO vs PSO | 88,211,100.96 | -256,653,214.32 to 433,075,416.25 | 9.57e-01 |
+| GWO vs WOA | -2,411,106,220.72 | -2,755,970,536.00 to -2,066,241,905.44 | 0.0 |
+| PSO vs WOA | -2,499,317,321.68 | -2,844,181,636.96 to -2,154,453,006.40 | 0.0 |
 
 VLIM-CBO-LF is separated from all four baselines, with p from 4.6e-16 against ABC down to 0.0 against GWO and WOA. ABC, GWO and PSO are tied among themselves (p 0.48 to 0.96), so the hybrid is the only method outside that block, and WOA sits below all of them.
 
 ### Friedman post-hoc, mean rank differences
 
-| Comparison | VLIM_CBO_LF vs ABC | VLIM_CBO_LF vs GWO | VLIM_CBO_LF vs PSO | VLIM_CBO_LF vs WOA | ABC vs GWO | ABC vs PSO | ABC vs WOA | GWO vs PSO | GWO vs WOA | PSO vs WOA |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Rank difference | -1.733 | -2.433 | -1.833 | -4.000 | -0.700 | -0.100 | -2.267 | 0.600 | -1.567 | -2.167 |
-| 95% CI | -2.85 to -0.62 | -3.55 to -1.32 | -2.95 to -0.72 | -5.11 to -2.89 | -1.81 to 0.41 | -1.21 to 1.01 | -3.38 to -1.15 | -0.51 to 1.71 | -2.68 to -0.45 | -3.28 to -1.05 |
-| p | 2.11e-04 | 2.47e-08 | 6.95e-05 | 5.18e-23 | 4.25e-01 | 9.99e-01 | 2.80e-07 | 5.82e-01 | 1.17e-03 | 1.11e-06 |
+| Comparison | Rank difference | 95% CI | p |
+|---|---|---|---|
+| VLIM_CBO_LF vs ABC | -1.733 | -2.85 to -0.62 | 2.11e-04 |
+| VLIM_CBO_LF vs GWO | -2.433 | -3.55 to -1.32 | 2.47e-08 |
+| VLIM_CBO_LF vs PSO | -1.833 | -2.95 to -0.72 | 6.95e-05 |
+| VLIM_CBO_LF vs WOA | -4.000 | -5.11 to -2.89 | 5.18e-23 |
+| ABC vs GWO | -0.700 | -1.81 to 0.41 | 4.25e-01 |
+| ABC vs PSO | -0.100 | -1.21 to 1.01 | 9.99e-01 |
+| ABC vs WOA | -2.267 | -3.38 to -1.15 | 2.80e-07 |
+| GWO vs PSO | 0.600 | -0.51 to 1.71 | 5.82e-01 |
+| GWO vs WOA | -1.567 | -2.68 to -0.45 | 1.17e-03 |
+| PSO vs WOA | -2.167 | -3.28 to -1.05 | 1.11e-06 |
 
 On ranks the hybrid is 1.73 places ahead of ABC (p 2.1e-4), 2.43 ahead of GWO (p 2.5e-8), 1.83 ahead of PSO (p 7.0e-5) and 4.00 ahead of WOA (p 5.2e-23). The three middle baselines are again indistinguishable (p 0.42 to 1.00).
 
 ### Paired t-test against baselines
 
-| Comparison | VLIM_CBO_LF vs ABC | VLIM_CBO_LF vs GWO | VLIM_CBO_LF vs PSO | VLIM_CBO_LF vs WOA |
+| Comparison | t statistic | p | Mean difference (IDR) | 95% CI |
 |---|---|---|---|---|
-| t statistic | -38.39 | -35.37 | -14.80 | -20.82 |
-| p | 2.05e-26 | 2.10e-25 | 4.77e-15 | 5.49e-19 |
-| Mean difference (IDR) | -1,049,546,756.87 | -1,254,400,614.05 | -1,166,189,513.09 | -3,665,506,834.77 |
-| 95% CI | -1,105,464,624.25 to -993,628,889.49 | -1,326,937,897.26 to -1,181,863,330.84 | -1,327,371,465.06 to -1,005,007,561.11 | -4,025,540,588.50 to -3,305,473,081.03 |
+| VLIM_CBO_LF vs ABC | -38.39 | 2.05e-26 | -1,049,546,756.87 | -1,105,464,624.25 to -993,628,889.49 |
+| VLIM_CBO_LF vs GWO | -35.37 | 2.10e-25 | -1,254,400,614.05 | -1,326,937,897.26 to -1,181,863,330.84 |
+| VLIM_CBO_LF vs PSO | -14.80 | 4.77e-15 | -1,166,189,513.09 | -1,327,371,465.06 to -1,005,007,561.11 |
+| VLIM_CBO_LF vs WOA | -20.82 | 5.49e-19 | -3,665,506,834.77 | -4,025,540,588.50 to -3,305,473,081.03 |
 
 All four paired t-tests reject equality with t statistics from minus 14.8 to minus 38.4 and confidence intervals that stay below zero, so the hybrid is cheaper than every baseline run by run, not only on average.
 
@@ -240,11 +254,18 @@ The three variants land within 15,436 IDR of each other, or 0.00004% of the dail
 
 ### Variant tests, omnibus ANOVA p 1.42e-07, Friedman p 9.36e-14
 
-| Comparison | VLIM vs VLIM-CBO | VLIM vs VLIM-CBO-LF | VLIM-CBO vs VLIM-CBO-LF | VLIM vs VLIM-CBO | VLIM vs VLIM-CBO-LF | VLIM-CBO vs VLIM-CBO-LF | VLIM-CBO-LF vs VLIM | VLIM-CBO-LF vs VLIM-CBO | VLIM vs VLIM-CBO-LF | VLIM-CBO vs VLIM-CBO-LF |
-|---|---|---|---|---|---|---|---|---|---|---|
-| Test | Tukey HSD | Tukey HSD | Tukey HSD | Friedman post-hoc | Friedman post-hoc | Friedman post-hoc | Paired t-test | Paired t-test | Wilcoxon | Wilcoxon |
-| Difference | 2,050.99 | 15,436.05 | 13,385.06 | 1.000 | 2.000 | 1.000 | -15,436.05 | -13,385.06 | -15,436.05 | -13,385.06 |
-| p | 7.32e-01 | 5.32e-07 | 1.20e-05 | 3.17e-04 | 2.26e-14 | 3.17e-04 | 6.95e-05 | 4.01e-04 | 1.73e-06 | 1.73e-06 |
+| Comparison | Test | Difference | p |
+|---|---|---|---|
+| VLIM vs VLIM-CBO | Tukey HSD | 2,050.99 | 7.32e-01 |
+| VLIM vs VLIM-CBO-LF | Tukey HSD | 15,436.05 | 5.32e-07 |
+| VLIM-CBO vs VLIM-CBO-LF | Tukey HSD | 13,385.06 | 1.20e-05 |
+| VLIM vs VLIM-CBO | Friedman post-hoc | 1.000 | 3.17e-04 |
+| VLIM vs VLIM-CBO-LF | Friedman post-hoc | 2.000 | 2.26e-14 |
+| VLIM-CBO vs VLIM-CBO-LF | Friedman post-hoc | 1.000 | 3.17e-04 |
+| VLIM-CBO-LF vs VLIM | Paired t-test | -15,436.05 | 6.95e-05 |
+| VLIM-CBO-LF vs VLIM-CBO | Paired t-test | -13,385.06 | 4.01e-04 |
+| VLIM vs VLIM-CBO-LF | Wilcoxon | -15,436.05 | 1.73e-06 |
+| VLIM-CBO vs VLIM-CBO-LF | Wilcoxon | -13,385.06 | 1.73e-06 |
 
 ANOVA (F 19.00, p 1.42e-7) and Friedman (chi-square 60, p 9.36e-14) both reject equality across the three variants. Tukey separates VLIM-CBO-LF from VLIM (p 5.3e-7) and from VLIM-CBO (p 1.2e-5) but not VLIM from VLIM-CBO (p 0.73); paired t-tests and Wilcoxon agree for both pairs. Rank order is VLIM-CBO-LF, VLIM-CBO, VLIM.
 
